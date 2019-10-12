@@ -1,0 +1,379 @@
+data_3REC
+# 
+_entry.id   3REC 
+# 
+_audit_conform.dict_name       mmcif_pdbx.dic 
+_audit_conform.dict_version    5.279 
+_audit_conform.dict_location   http://mmcif.pdb.org/dictionaries/ascii/mmcif_pdbx.dic 
+# 
+loop_
+_database_2.database_id 
+_database_2.database_code 
+PDB   3REC         
+WWPDB D_1000179129 
+# 
+_pdbx_database_related.db_name        PDB 
+_pdbx_database_related.db_id          1EW1 
+_pdbx_database_related.details        'ENSEMBLE OF 10 STRUCTURES' 
+_pdbx_database_related.content_type   unspecified 
+# 
+_pdbx_database_status.status_code                     REL 
+_pdbx_database_status.entry_id                        3REC 
+_pdbx_database_status.recvd_initial_deposition_date   1997-04-17 
+_pdbx_database_status.deposit_site                    ? 
+_pdbx_database_status.process_site                    ? 
+_pdbx_database_status.SG_entry                        . 
+_pdbx_database_status.pdb_format_compatible           Y 
+_pdbx_database_status.status_code_mr                  ? 
+_pdbx_database_status.status_code_sf                  ? 
+_pdbx_database_status.status_code_cs                  ? 
+_pdbx_database_status.methods_development_category    ? 
+# 
+loop_
+_audit_author.name 
+_audit_author.pdbx_ordinal 
+'Nishinaka, T.' 1 
+'Ito, Y.'       2 
+'Yokoyama, S.'  3 
+'Shibata, T.'   4 
+# 
+_citation.id                        primary 
+_citation.title                     'An extended DNA structure through deoxyribose-base stacking induced by RecA protein.' 
+_citation.journal_abbrev            Proc.Natl.Acad.Sci.USA 
+_citation.journal_volume            94 
+_citation.page_first                6623 
+_citation.page_last                 6628 
+_citation.year                      1997 
+_citation.journal_id_ASTM           PNASA6 
+_citation.country                   US 
+_citation.journal_id_ISSN           0027-8424 
+_citation.journal_id_CSD            0040 
+_citation.book_publisher            ? 
+_citation.pdbx_database_id_PubMed   9192615 
+_citation.pdbx_database_id_DOI      10.1073/pnas.94.13.6623 
+# 
+loop_
+_citation_author.citation_id 
+_citation_author.name 
+_citation_author.ordinal 
+primary 'Nishinaka, T.' 1 
+primary 'Ito, Y.'       2 
+primary 'Yokoyama, S.'  3 
+primary 'Shibata, T.'   4 
+# 
+_cell.entry_id           3REC 
+_cell.length_a           1.000 
+_cell.length_b           1.000 
+_cell.length_c           1.000 
+_cell.angle_alpha        90.00 
+_cell.angle_beta         90.00 
+_cell.angle_gamma        90.00 
+_cell.Z_PDB              1 
+_cell.pdbx_unique_axis   ? 
+# 
+_symmetry.entry_id                         3REC 
+_symmetry.space_group_name_H-M             'P 1' 
+_symmetry.pdbx_full_space_group_name_H-M   ? 
+_symmetry.cell_setting                     ? 
+_symmetry.Int_Tables_number                1 
+# 
+_entity.id                         1 
+_entity.type                       polymer 
+_entity.src_method                 syn 
+_entity.pdbx_description           
+;DNA (5'-D(*TP*A)-3')
+;
+_entity.formula_weight             572.442 
+_entity.pdbx_number_of_molecules   1 
+_entity.pdbx_ec                    ? 
+_entity.pdbx_mutation              ? 
+_entity.pdbx_fragment              ? 
+_entity.details                    'D(TA) REGION OF D(TACG) RECA PROTEIN-BOUND DNA' 
+# 
+_entity_poly.entity_id                      1 
+_entity_poly.type                           polydeoxyribonucleotide 
+_entity_poly.nstd_linkage                   no 
+_entity_poly.nstd_monomer                   no 
+_entity_poly.pdbx_seq_one_letter_code       '(DT)(DA)' 
+_entity_poly.pdbx_seq_one_letter_code_can   TA 
+_entity_poly.pdbx_strand_id                 A 
+_entity_poly.pdbx_target_identifier         ? 
+# 
+loop_
+_entity_poly_seq.entity_id 
+_entity_poly_seq.num 
+_entity_poly_seq.mon_id 
+_entity_poly_seq.hetero 
+1 1 DT n 
+1 2 DA n 
+# 
+_struct_ref.id                         1 
+_struct_ref.entity_id                  1 
+_struct_ref.db_name                    PDB 
+_struct_ref.db_code                    3REC 
+_struct_ref.pdbx_db_accession          3REC 
+_struct_ref.pdbx_db_isoform            ? 
+_struct_ref.pdbx_seq_one_letter_code   ? 
+_struct_ref.pdbx_align_begin           ? 
+# 
+_struct_ref_seq.align_id                      1 
+_struct_ref_seq.ref_id                        1 
+_struct_ref_seq.pdbx_PDB_id_code              3REC 
+_struct_ref_seq.pdbx_strand_id                A 
+_struct_ref_seq.seq_align_beg                 1 
+_struct_ref_seq.pdbx_seq_align_beg_ins_code   ? 
+_struct_ref_seq.seq_align_end                 2 
+_struct_ref_seq.pdbx_seq_align_end_ins_code   ? 
+_struct_ref_seq.pdbx_db_accession             3REC 
+_struct_ref_seq.db_align_beg                  1 
+_struct_ref_seq.pdbx_db_align_beg_ins_code    ? 
+_struct_ref_seq.db_align_end                  2 
+_struct_ref_seq.pdbx_db_align_end_ins_code    ? 
+_struct_ref_seq.pdbx_auth_seq_align_beg       1 
+_struct_ref_seq.pdbx_auth_seq_align_end       2 
+# 
+loop_
+_chem_comp.id 
+_chem_comp.type 
+_chem_comp.mon_nstd_flag 
+_chem_comp.name 
+_chem_comp.pdbx_synonyms 
+_chem_comp.formula 
+_chem_comp.formula_weight 
+DA 'DNA linking' y "2'-DEOXYADENOSINE-5'-MONOPHOSPHATE" ? 'C10 H14 N5 O6 P' 331.222 
+DT 'DNA linking' y "THYMIDINE-5'-MONOPHOSPHATE"         ? 'C10 H15 N2 O8 P' 322.208 
+# 
+_pdbx_nmr_exptl.experiment_id   1 
+_pdbx_nmr_exptl.conditions_id   1 
+_pdbx_nmr_exptl.type            'TRANSFERRED NOESY' 
+_pdbx_nmr_exptl.solution_id     1 
+# 
+_pdbx_nmr_exptl_sample_conditions.conditions_id       1 
+_pdbx_nmr_exptl_sample_conditions.temperature         303 
+_pdbx_nmr_exptl_sample_conditions.pressure            ? 
+_pdbx_nmr_exptl_sample_conditions.pH                  7.1 
+_pdbx_nmr_exptl_sample_conditions.ionic_strength      ? 
+_pdbx_nmr_exptl_sample_conditions.pressure_units      . 
+_pdbx_nmr_exptl_sample_conditions.temperature_units   K 
+# 
+_pdbx_nmr_spectrometer.spectrometer_id   1 
+_pdbx_nmr_spectrometer.model             AMX600 
+_pdbx_nmr_spectrometer.manufacturer      Bruker 
+_pdbx_nmr_spectrometer.field_strength    600 
+# 
+_pdbx_nmr_refine.entry_id           3REC 
+_pdbx_nmr_refine.method             'simulated annealing' 
+_pdbx_nmr_refine.details            'REFINEMENT DETAILS CAN BE FOUND IN THE MATERIAL AND METHODS SECTION OF THE ABOVE REFERENCE.' 
+_pdbx_nmr_refine.software_ordinal   1 
+# 
+_pdbx_nmr_ensemble.entry_id                             3REC 
+_pdbx_nmr_ensemble.conformers_calculated_total_number   100 
+_pdbx_nmr_ensemble.conformers_submitted_total_number    1 
+_pdbx_nmr_ensemble.conformer_selection_criteria         'LEAST OVERALL ENERGY' 
+# 
+loop_
+_pdbx_nmr_software.classification 
+_pdbx_nmr_software.name 
+_pdbx_nmr_software.version 
+_pdbx_nmr_software.authors 
+_pdbx_nmr_software.ordinal 
+refinement           X-PLOR 3.1 BRUNGER 1 
+'structure solution' X-PLOR ?   ?       2 
+# 
+_exptl.entry_id          3REC 
+_exptl.method            'SOLUTION NMR' 
+_exptl.crystals_number   ? 
+# 
+_struct.entry_id                  3REC 
+_struct.title                     'ESCHERICHIA COLI RECA PROTEIN-BOUND DNA, NMR, 1 STRUCTURE' 
+_struct.pdbx_descriptor           "5'-D(*TP*A)-3'" 
+_struct.pdbx_model_details        ? 
+_struct.pdbx_CASP_flag            ? 
+_struct.pdbx_model_type_details   ? 
+# 
+_struct_keywords.entry_id        3REC 
+_struct_keywords.pdbx_keywords   DNA 
+_struct_keywords.text            
+'DEOXYRIBOSE-BASE STACKING, HOMOLOGOUS RECOMBINATION, HOMOLOGOUS PAIRING, DEOXYRIBONUCLEIC ACID, DNA' 
+# 
+_struct_asym.id                            A 
+_struct_asym.pdbx_blank_PDB_chainid_flag   N 
+_struct_asym.pdbx_modified                 N 
+_struct_asym.entity_id                     1 
+_struct_asym.details                       ? 
+# 
+_struct_biol.id   1 
+# 
+_database_PDB_matrix.entry_id          3REC 
+_database_PDB_matrix.origx[1][1]       1.000000 
+_database_PDB_matrix.origx[1][2]       0.000000 
+_database_PDB_matrix.origx[1][3]       0.000000 
+_database_PDB_matrix.origx[2][1]       0.000000 
+_database_PDB_matrix.origx[2][2]       1.000000 
+_database_PDB_matrix.origx[2][3]       0.000000 
+_database_PDB_matrix.origx[3][1]       0.000000 
+_database_PDB_matrix.origx[3][2]       0.000000 
+_database_PDB_matrix.origx[3][3]       1.000000 
+_database_PDB_matrix.origx_vector[1]   0.00000 
+_database_PDB_matrix.origx_vector[2]   0.00000 
+_database_PDB_matrix.origx_vector[3]   0.00000 
+# 
+_atom_sites.entry_id                    3REC 
+_atom_sites.fract_transf_matrix[1][1]   1.000000 
+_atom_sites.fract_transf_matrix[1][2]   0.000000 
+_atom_sites.fract_transf_matrix[1][3]   0.000000 
+_atom_sites.fract_transf_matrix[2][1]   0.000000 
+_atom_sites.fract_transf_matrix[2][2]   1.000000 
+_atom_sites.fract_transf_matrix[2][3]   0.000000 
+_atom_sites.fract_transf_matrix[3][1]   0.000000 
+_atom_sites.fract_transf_matrix[3][2]   0.000000 
+_atom_sites.fract_transf_matrix[3][3]   1.000000 
+_atom_sites.fract_transf_vector[1]      0.00000 
+_atom_sites.fract_transf_vector[2]      0.00000 
+_atom_sites.fract_transf_vector[3]      0.00000 
+# 
+loop_
+_atom_type.symbol 
+C 
+H 
+N 
+O 
+P 
+# 
+loop_
+_atom_site.group_PDB 
+_atom_site.id 
+_atom_site.type_symbol 
+_atom_site.label_atom_id 
+_atom_site.label_alt_id 
+_atom_site.label_comp_id 
+_atom_site.label_asym_id 
+_atom_site.label_entity_id 
+_atom_site.label_seq_id 
+_atom_site.pdbx_PDB_ins_code 
+_atom_site.Cartn_x 
+_atom_site.Cartn_y 
+_atom_site.Cartn_z 
+_atom_site.occupancy 
+_atom_site.B_iso_or_equiv 
+_atom_site.pdbx_formal_charge 
+_atom_site.auth_seq_id 
+_atom_site.auth_comp_id 
+_atom_site.auth_asym_id 
+_atom_site.auth_atom_id 
+_atom_site.pdbx_PDB_model_num 
+ATOM 1  O "O5'"  . DT A 1 1 ? 6.823 -2.711 6.110  1.00 0.00 ? 1 DT A "O5'"  1 
+ATOM 2  C "C5'"  . DT A 1 1 ? 7.938 -1.871 6.464  1.00 0.00 ? 1 DT A "C5'"  1 
+ATOM 3  C "C4'"  . DT A 1 1 ? 7.452 -0.639 7.195  1.00 0.00 ? 1 DT A "C4'"  1 
+ATOM 4  O "O4'"  . DT A 1 1 ? 6.144 -0.280 6.693  1.00 0.00 ? 1 DT A "O4'"  1 
+ATOM 5  C "C3'"  . DT A 1 1 ? 7.285 -0.842 8.701  1.00 0.00 ? 1 DT A "C3'"  1 
+ATOM 6  O "O3'"  . DT A 1 1 ? 7.586 0.381  9.390  1.00 0.00 ? 1 DT A "O3'"  1 
+ATOM 7  C "C2'"  . DT A 1 1 ? 5.808 -1.150 8.845  1.00 0.00 ? 1 DT A "C2'"  1 
+ATOM 8  C "C1'"  . DT A 1 1 ? 5.190 -0.306 7.745  1.00 0.00 ? 1 DT A "C1'"  1 
+ATOM 9  N N1     . DT A 1 1 ? 3.932 -0.849 7.204  1.00 0.00 ? 1 DT A N1     1 
+ATOM 10 C C2     . DT A 1 1 ? 2.869 0.009  7.039  1.00 0.00 ? 1 DT A C2     1 
+ATOM 11 O O2     . DT A 1 1 ? 2.921 1.195  7.319  1.00 0.00 ? 1 DT A O2     1 
+ATOM 12 N N3     . DT A 1 1 ? 1.736 -0.576 6.530  1.00 0.00 ? 1 DT A N3     1 
+ATOM 13 C C4     . DT A 1 1 ? 1.566 -1.902 6.178  1.00 0.00 ? 1 DT A C4     1 
+ATOM 14 O O4     . DT A 1 1 ? 0.487 -2.283 5.733  1.00 0.00 ? 1 DT A O4     1 
+ATOM 15 C C5     . DT A 1 1 ? 2.722 -2.745 6.378  1.00 0.00 ? 1 DT A C5     1 
+ATOM 16 C C7     . DT A 1 1 ? 2.633 -4.196 6.026  1.00 0.00 ? 1 DT A C7     1 
+ATOM 17 C C6     . DT A 1 1 ? 3.832 -2.184 6.874  1.00 0.00 ? 1 DT A C6     1 
+ATOM 18 H "H5'"  . DT A 1 1 ? 8.463 -1.568 5.558  1.00 0.00 ? 1 DT A "H5'"  1 
+ATOM 19 H "H5''" . DT A 1 1 ? 8.618 -2.428 7.109  1.00 0.00 ? 1 DT A "H5''" 1 
+ATOM 20 H "H4'"  . DT A 1 1 ? 8.147 0.184  7.027  1.00 0.00 ? 1 DT A "H4'"  1 
+ATOM 21 H "H3'"  . DT A 1 1 ? 7.894 -1.674 9.053  1.00 0.00 ? 1 DT A "H3'"  1 
+ATOM 22 H "H2'"  . DT A 1 1 ? 5.610 -2.209 8.687  1.00 0.00 ? 1 DT A "H2'"  1 
+ATOM 23 H "H2''" . DT A 1 1 ? 5.438 -0.852 9.825  1.00 0.00 ? 1 DT A "H2''" 1 
+ATOM 24 H "H1'"  . DT A 1 1 ? 5.026 0.704  8.121  1.00 0.00 ? 1 DT A "H1'"  1 
+ATOM 25 H H3     . DT A 1 1 ? 0.938 0.029  6.398  1.00 0.00 ? 1 DT A H3     1 
+ATOM 26 H H71    . DT A 1 1 ? 2.823 -4.798 6.915  1.00 0.00 ? 1 DT A H71    1 
+ATOM 27 H H72    . DT A 1 1 ? 3.375 -4.431 5.263  1.00 0.00 ? 1 DT A H72    1 
+ATOM 28 H H73    . DT A 1 1 ? 1.636 -4.417 5.644  1.00 0.00 ? 1 DT A H73    1 
+ATOM 29 H H6     . DT A 1 1 ? 4.705 -2.818 7.025  1.00 0.00 ? 1 DT A H6     1 
+ATOM 30 H "HO5'" . DT A 1 1 ? 6.384 -2.961 6.926  1.00 0.00 ? 1 DT A "HO5'" 1 
+ATOM 31 P P      . DA A 1 2 ? 8.546 0.352  10.679 1.00 0.00 ? 2 DA A P      1 
+ATOM 32 O OP1    . DA A 1 2 ? 9.828 0.994  10.293 1.00 0.00 ? 2 DA A OP1    1 
+ATOM 33 O OP2    . DA A 1 2 ? 8.551 -1.028 11.226 1.00 0.00 ? 2 DA A OP2    1 
+ATOM 34 O "O5'"  . DA A 1 2 ? 7.812 1.303  11.726 1.00 0.00 ? 2 DA A "O5'"  1 
+ATOM 35 C "C5'"  . DA A 1 2 ? 7.627 2.704  11.451 1.00 0.00 ? 2 DA A "C5'"  1 
+ATOM 36 C "C4'"  . DA A 1 2 ? 6.387 3.214  12.150 1.00 0.00 ? 2 DA A "C4'"  1 
+ATOM 37 O "O4'"  . DA A 1 2 ? 5.272 2.358  11.811 1.00 0.00 ? 2 DA A "O4'"  1 
+ATOM 38 C "C3'"  . DA A 1 2 ? 6.487 3.192  13.675 1.00 0.00 ? 2 DA A "C3'"  1 
+ATOM 39 O "O3'"  . DA A 1 2 ? 5.773 4.296  14.240 1.00 0.00 ? 2 DA A "O3'"  1 
+ATOM 40 C "C2'"  . DA A 1 2 ? 5.817 1.883  14.043 1.00 0.00 ? 2 DA A "C2'"  1 
+ATOM 41 C "C1'"  . DA A 1 2 ? 4.738 1.759  12.983 1.00 0.00 ? 2 DA A "C1'"  1 
+ATOM 42 N N9     . DA A 1 2 ? 4.374 0.381  12.658 1.00 0.00 ? 2 DA A N9     1 
+ATOM 43 C C8     . DA A 1 2 ? 5.194 -0.720 12.626 1.00 0.00 ? 2 DA A C8     1 
+ATOM 44 N N7     . DA A 1 2 ? 4.577 -1.829 12.299 1.00 0.00 ? 2 DA A N7     1 
+ATOM 45 C C5     . DA A 1 2 ? 3.261 -1.433 12.101 1.00 0.00 ? 2 DA A C5     1 
+ATOM 46 C C6     . DA A 1 2 ? 2.116 -2.133 11.683 1.00 0.00 ? 2 DA A C6     1 
+ATOM 47 N N6     . DA A 1 2 ? 2.098 -3.444 11.435 1.00 0.00 ? 2 DA A N6     1 
+ATOM 48 N N1     . DA A 1 2 ? 0.973 -1.430 11.528 1.00 0.00 ? 2 DA A N1     1 
+ATOM 49 C C2     . DA A 1 2 ? 0.991 -0.115 11.777 1.00 0.00 ? 2 DA A C2     1 
+ATOM 50 N N3     . DA A 1 2 ? 2.002 0.654  12.174 1.00 0.00 ? 2 DA A N3     1 
+ATOM 51 C C4     . DA A 1 2 ? 3.122 -0.074 12.319 1.00 0.00 ? 2 DA A C4     1 
+ATOM 52 H "H5'"  . DA A 1 2 ? 7.520 2.849  10.376 1.00 0.00 ? 2 DA A "H5'"  1 
+ATOM 53 H "H5''" . DA A 1 2 ? 8.495 3.259  11.807 1.00 0.00 ? 2 DA A "H5''" 1 
+ATOM 54 H "H4'"  . DA A 1 2 ? 6.177 4.233  11.826 1.00 0.00 ? 2 DA A "H4'"  1 
+ATOM 55 H "H3'"  . DA A 1 2 ? 7.527 3.203  13.999 1.00 0.00 ? 2 DA A "H3'"  1 
+ATOM 56 H "HO3'" . DA A 1 2 ? 4.846 4.178  14.022 1.00 0.00 ? 2 DA A "HO3'" 1 
+ATOM 57 H "H2'"  . DA A 1 2 ? 6.520 1.052  13.988 1.00 0.00 ? 2 DA A "H2'"  1 
+ATOM 58 H "H2''" . DA A 1 2 ? 5.384 1.930  15.042 1.00 0.00 ? 2 DA A "H2''" 1 
+ATOM 59 H "H1'"  . DA A 1 2 ? 3.855 2.308  13.310 1.00 0.00 ? 2 DA A "H1'"  1 
+ATOM 60 H H8     . DA A 1 2 ? 6.258 -0.676 12.851 1.00 0.00 ? 2 DA A H8     1 
+ATOM 61 H H61    . DA A 1 2 ? 1.243 -3.890 11.135 1.00 0.00 ? 2 DA A H61    1 
+ATOM 62 H H62    . DA A 1 2 ? 2.940 -3.991 11.547 1.00 0.00 ? 2 DA A H62    1 
+ATOM 63 H H2     . DA A 1 2 ? 0.044 0.398  11.635 1.00 0.00 ? 2 DA A H2     1 
+# 
+loop_
+_pdbx_poly_seq_scheme.asym_id 
+_pdbx_poly_seq_scheme.entity_id 
+_pdbx_poly_seq_scheme.seq_id 
+_pdbx_poly_seq_scheme.mon_id 
+_pdbx_poly_seq_scheme.ndb_seq_num 
+_pdbx_poly_seq_scheme.pdb_seq_num 
+_pdbx_poly_seq_scheme.auth_seq_num 
+_pdbx_poly_seq_scheme.pdb_mon_id 
+_pdbx_poly_seq_scheme.auth_mon_id 
+_pdbx_poly_seq_scheme.pdb_strand_id 
+_pdbx_poly_seq_scheme.pdb_ins_code 
+_pdbx_poly_seq_scheme.hetero 
+A 1 1 DT 1 1 1 DT T A . n 
+A 1 2 DA 2 2 2 DA A A . n 
+# 
+loop_
+_pdbx_audit_revision_history.ordinal 
+_pdbx_audit_revision_history.data_content_type 
+_pdbx_audit_revision_history.major_revision 
+_pdbx_audit_revision_history.minor_revision 
+_pdbx_audit_revision_history.revision_date 
+1 'Structure model' 1 0 1997-10-22 
+2 'Structure model' 1 1 2008-03-25 
+3 'Structure model' 1 2 2011-07-13 
+# 
+_pdbx_audit_revision_details.ordinal             1 
+_pdbx_audit_revision_details.revision_ordinal    1 
+_pdbx_audit_revision_details.data_content_type   'Structure model' 
+_pdbx_audit_revision_details.provider            repository 
+_pdbx_audit_revision_details.type                'Initial release' 
+_pdbx_audit_revision_details.description         ? 
+# 
+loop_
+_pdbx_audit_revision_group.ordinal 
+_pdbx_audit_revision_group.revision_ordinal 
+_pdbx_audit_revision_group.data_content_type 
+_pdbx_audit_revision_group.group 
+1 2 'Structure model' 'Version format compliance' 
+2 3 'Structure model' 'Version format compliance' 
+# 
+loop_
+_software.name 
+_software.classification 
+_software.version 
+_software.citation_id 
+_software.pdbx_ordinal 
+X-PLOR 'model building' 3.1 ? 1 
+X-PLOR refinement       3.1 ? 2 
+X-PLOR phasing          3.1 ? 3 
+# 
