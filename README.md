@@ -9,14 +9,14 @@ quicker parsing.
 
 ## Table of Contents
 
-* [API] (docs/api.rst)
-* [Comparison] (docs/compare.rst)
-* [Compiling] (#compiling)
-* [Contact] (#conact)
+* [API](docs/api.rst)
+* [Comparison](docs/compare.rst)
+* [Compiling](#compiling)
+* [Contact](#conact)
 
 ## Compiling
 
-A simple [meson] (https://measonbuild.com/) setup is provided.
+A simple [meson](https://mesonbuild.com/) setup is provided.
 For simpliest use, just copy the one header file and C++ source
 file in your code.
 
