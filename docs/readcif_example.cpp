@@ -1,4 +1,4 @@
-// vi: set expandtab shiftwidth=4 softtabstop=4:
+// vi: set expandtab shiftwidth=4:
 #include "readcif.h"
 #include <iostream>
 #include <stdio.h>
@@ -175,7 +175,7 @@ main(int argc, char **argv)
             case 'd':
                 debug = true;
                 break;
-            default: // '?'
+            default:  // '?'
                 goto usage;
         }
     }
@@ -183,7 +183,7 @@ main(int argc, char **argv)
     if (optind != argc - 1) {
 usage:
         std::cerr << "Usage: " << argv[0] << " [-d] mmCIF-filename\n";
-        exit(EXIT_FAILURE);
+        return EXIT_FAILURE;
     }
 
     ExtractCIF extract;
