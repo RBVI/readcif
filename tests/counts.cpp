@@ -1,8 +1,7 @@
-// vi: set expandtab shiftwidth=4 softtabstop=4:
+// vi: set expandtab shiftwidth=4:
 //
 // Output the number of rows and fields for all categories in a CIF file
 //
-// counts file.cif
 
 #include "readcif.h"
 #include <iostream>
@@ -27,7 +26,7 @@ counts()
 }
 
 int
-main(int argc, char **argv)
+main(int /*argc*/, char **argv)
 {
     extract.set_unregistered_callback(counts);
     extract.parse_file(argv[1]);

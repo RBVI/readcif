@@ -8,7 +8,7 @@ Scan CIF files for particular values
 
 :Author: gregc@cgl.ucsf.edu
 :Date: 2014-9-03
-:Copyright: RBVI Open Source
+:Copyright: `RBVI Open Source <http://www.cgl.ucsf.edu/Overview/opensource.html>`
 :Manual section: 1
 :Manual group: text processing
 
