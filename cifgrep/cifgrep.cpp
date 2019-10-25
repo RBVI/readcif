@@ -1,4 +1,3 @@
-// vi: set expandtab shiftwidth=4 softtabstop=4:
 // The idea is to have an expr-like program that searchs mmCIF files
 //
 // cifgrep category.id1,id2 [cif-file]
@@ -45,6 +44,7 @@ struct Extract: CIFFile
 
 Extract::Extract()
 {
+	extract.register_heuristic_stylized_detection();
 }
 
 void
@@ -101,8 +101,8 @@ save_parse_info()
 		if (list_filename_only) { std::cout << '\n';
 			throw TerminateEarly();
 		}
-                if (show_filename)
-                    std::cout << ": ";
+		if (show_filename)
+			std::cout << ": ";
 		bool rest = false;
 		for (auto&& id: tags) {
 			if (rest)
@@ -159,7 +159,7 @@ int
 main(int argc, char** argv)
 {
 	int opt;
-        bool set_show_filename = false;
+	bool set_show_filename = false;
 
 	while ((opt = getopt(argc, argv, "pdhHlv")) != -1) {
 		switch (opt) {
@@ -171,16 +171,16 @@ main(int argc, char** argv)
 				break;
 			case 'h':
 				show_filename = false;
-                                set_show_filename = true;
+				set_show_filename = true;
 				break;
 			case 'H':
 				show_filename = true;
-                                set_show_filename = true;
+				set_show_filename = true;
 				break;
 			case 'l':
 				list_filename_only = true;
 				show_filename = true;
-                                set_show_filename = true;
+				set_show_filename = true;
 				break;
 			case 'v':
 				verbose = true;
@@ -195,8 +195,8 @@ usage:
 		std::cerr << "Usage: " << argv[0] <<
 			" [-d] [-p] [-l] [-q] CIF_tags filename(s)\n"
 			"\t-d\tShow data block instead of filename.\n"
-                        "\t-h\tSuppress filename.\n"
-                        "\t-H\tAlways show filename.\n"
+			"\t-h\tSuppress filename.\n"
+			"\t-H\tAlways show filename.\n"
 			"\t-l\tIf a match is found, just list the filename.\n"
 			"\t-p\tPDBx style (lowercase keyword/tags at beginning of line).\n"
 			"\tCIF tags are comma separated category.id values.\n"
@@ -216,8 +216,8 @@ usage:
 		extract.register_category(category, save_parse_info);
 	}
 
-        if (!set_show_filename)
-            show_filename = (argc - optind) > 1;
+	if (!set_show_filename)
+		show_filename = (argc - optind) > 1;
 	for (; optind < argc; ++optind) {
 		current_filename = argv[optind];
 		try {

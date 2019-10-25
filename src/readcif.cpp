@@ -1456,4 +1456,84 @@ CIFFile::global_block()
 	throw error("unexpected global_ keyword");
 }
 
+void
+CIFFile::register_heuristic_stylized_detection()
+{
+	register_category("audit_conform",
+		[this] () {
+			parse_audit_conform();
+		});
+	register_category("audit_syntax",
+		[this] () {
+			parse_audit_syntax();
+		});
+}
+
+void
+CIFFile::parse_audit_conform()
+{
+	// Heuristic to tell if the CIF file was written in the
+	// PDBx/mmCIF stylized format.
+	string dict_name;
+	float dict_version = 0;
+
+	CIFFile::ParseValues pv;
+	pv.reserve(2);
+	try {
+		pv.emplace_back(get_column("dict_name"),
+			[&dict_name] (const char* start, const char* end) {
+				dict_name = string(start, end - start);
+			});
+		pv.emplace_back(get_column("dict_version"),
+			[&dict_version] (const char* start) {
+				dict_version = strtof(start, NULL);
+			});
+	} catch (std::runtime_error& e) {
+		return;
+	}
+	parse_row(pv);
+	if (dict_name == "mmcif_pdbx.dic" && dict_version > 4) {
+		set_PDBx_keywords(true);
+		set_PDBx_fixed_width_columns("atom_site");
+		set_PDBx_fixed_width_columns("atom_site_anisotrop");
+	}
+}
+
+void
+CIFFile::parse_audit_syntax()
+{
+	// Explicit wasy to tell if the CIF file was written in the
+	// PDBx/mmCIF stylized format.
+	bool case_sensitive = false;
+	vector<string> fixed_width;
+	fixed_width.reserve(12);
+
+	CIFFile::ParseValues pv;
+	pv.reserve(2);
+	try {
+		pv.emplace_back(get_column("case_sensitive_flag"),
+			[&] (const char* start) {
+				case_sensitive = *start == 'Y' || *start == 'y';
+			});
+		pv.emplace_back(get_column("fixed_width"),
+			[&] (const char* start, const char* end) {
+				for (const char *cp = start; cp < end; ++cp) {
+					if (isspace(*cp))
+						continue;
+					start = cp;
+					while (cp < end && !isspace(*cp))
+						++cp;
+					fixed_width.push_back(string(start, cp - start));
+				}
+			});
+	} catch (std::runtime_error& e) {
+		return;
+	}
+	parse_row(pv);
+	set_PDBx_keywords(case_sensitive);
+	use_fixed_width_columns.clear();
+	for (auto& category: fixed_width)
+		set_PDBx_fixed_width_columns(category);
+}
+
 } // namespace readcif

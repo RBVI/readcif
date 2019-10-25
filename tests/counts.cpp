@@ -28,6 +28,7 @@ counts()
 int
 main(int /*argc*/, char **argv)
 {
+    extract.register_heuristic_stylized_detection();
     extract.set_unregistered_callback(counts);
     extract.parse_file(argv[1]);
 }

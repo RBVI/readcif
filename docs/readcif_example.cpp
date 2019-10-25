@@ -36,78 +36,26 @@ struct Atom
 
 struct ExtractCIF: CIFFile {
     ExtractCIF();
-    void parse_audit_conform();
     void parse_atom_site();
     std::vector<Atom> atoms;
 };
 
 ExtractCIF::ExtractCIF()
 {
+    register_heuristic_stylized_detection();
 #if 0
     using std::placeholder;
-    register_category("audit_conform", 
-                      std::bind(&ExtractCIF::audit_conform, this, _1));
     register_category("atom_site", 
                       std::bind(&ExtractCIF::parse_atom_site, this, _1));
 #else
     // Personal preference, I like lambda functions better.
     // The lambda functions are needed because parse_XXXX
     // are member functions.
-    register_category("audit_conform", 
-                      [this] () {
-                          parse_audit_conform();
-                      });
     register_category("atom_site", 
                       [this] () {
                           parse_atom_site();
                       });
 #endif
-}
-
-void
-ExtractCIF::parse_audit_conform()
-{
-    // Looking for a way to tell if the mmCIF file was written
-    // in the PDBx/mmCIF stylized format.  The following technique
-    // is not guaranteed to work, but is sufficient for this example.
-    string dict_name;
-    float dict_version = 0;
-    bool has_pdbx = false;
-
-    CIFFile::ParseValues pv;
-    pv.reserve(2);
-    pv.emplace_back(get_column("dict_name"),
-                    [&] (const char* start, const char* end) {
-                        dict_name = string(start, end - start);
-                    });
-    pv.emplace_back(get_column("dict_version"),
-                    [&] (const char* start) {
-                        dict_version = atof(start);
-                    });
-    pv.emplace_back(get_column("pdbx_keywords_flag"),
-                    [&] (const char* start) {
-                        has_pdbx = true;
-                        set_PDBx_keywords(*start == 'Y' || *start == 'y');
-                    });
-    pv.emplace_back(get_column("pdbx_fixed_width_columns"),
-                    [&] (const char* start, const char* end) {
-                        has_pdbx = true;
-                        for (const char *cp = start; cp < end; ++cp) {
-                            if (isspace(*cp))
-                                continue;
-                            start = cp;
-                            while (cp < end && !isspace(*cp))
-                                ++cp;
-                            set_PDBx_fixed_width_columns(string(start, cp - start));
-                        }
-                    });
-    parse_row(pv);
-
-    if (!has_pdbx && dict_name == "mmcif_pdbx.dic" && dict_version > 4) {
-        set_PDBx_keywords(true);
-        set_PDBx_fixed_width_columns("atom_site");
-        set_PDBx_fixed_width_columns("atom_site_anisotrop");
-    }
 }
 
 void
