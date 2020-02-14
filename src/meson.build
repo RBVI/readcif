@@ -14,8 +14,8 @@ shared = shared_library('readcif', sources,
 
 pkg_mod = import('pkgconfig')
 pkg_mod.generate(
-	name: "libreadcif",
-	filebase: "libreadcif"
-	description: "a fast C++ CIF and mmCIF parser",
-	libraries: [lib, shlib]
+	name: 'libreadcif',
+	filebase: 'libreadcif',
+	description: 'a fast C++ CIF and mmCIF parser',
+	libraries: [lib, shared]
 )
