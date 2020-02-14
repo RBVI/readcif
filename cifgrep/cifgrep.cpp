@@ -44,7 +44,7 @@ struct Extract: CIFFile
 
 Extract::Extract()
 {
-	extract.register_heuristic_stylized_detection();
+	Extract::register_heuristic_stylized_detection();
 }
 
 void
