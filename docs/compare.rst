@@ -1,3 +1,5 @@
+..  vim: set expandtab shiftwidth=4:
+
 Benchmarking readcif
 ====================
 
