@@ -43,10 +43,7 @@ help:
 install: html
 
 clean:
-	-rm -rf $(BUILDDIR)/* conf.py
-
-conf.py: conf.py.in
-	sed 's/PYTHON_VERSION/$(PYTHON_VERSION)/' < $< > $@
+	-rm -rf $(BUILDDIR)/*
 
 html: conf.py
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
