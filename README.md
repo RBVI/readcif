@@ -32,8 +32,8 @@ So if you use it, acknowledge that fact in your documentation.
 ## Compiling
 
 A simple [meson](https://mesonbuild.com/) setup is provided.
-For simplest use, just copy the one header file and C++ source
-file in your code.
+For simplest use, just copy the one C++ header file and source
+file into your code.
 ```
 % meson setup builddir
 % cd builddir
