@@ -192,6 +192,7 @@ readcif C++ API
            and :cpp:func:`finished_parse`.
 
         .. cpp:function:: const StringVector& colnames()
+
            :return: the set of column names for the current category
 
            Only valid within a :cpp:type:`ParseCategory` callback.
