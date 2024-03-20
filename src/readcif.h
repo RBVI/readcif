@@ -366,6 +366,7 @@ private:
     size_t      lineno;     // current line number
     const char* pos;        // current position in line/file (index)
     bool        save_values;    // true if T_VALUE values are needed
+    bool        has_audit_syntax;
 };
 
 inline const std::string&

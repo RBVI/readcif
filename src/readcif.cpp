@@ -795,6 +795,7 @@ CIFFile::internal_reset_parse()
 	columns.clear();
 	seen.clear();
 	stash.clear();
+	has_audit_syntax = false;
 
 	// lexical state
 	current_token = T_SOI;
@@ -1488,6 +1489,8 @@ CIFFile::parse_audit_conform()
 {
 	// Heuristic to tell if the CIF file was written in the
 	// PDBx/mmCIF stylized format.
+	if (has_audit_syntax)
+		return;
 	string dict_name;
 	float dict_version = 0;
 
@@ -1516,7 +1519,7 @@ CIFFile::parse_audit_conform()
 void
 CIFFile::parse_audit_syntax()
 {
-	// Explicit wasy to tell if the CIF file was written in the
+	// Explicit way to tell if the CIF file was written in the
 	// PDBx/mmCIF stylized format.
 	bool case_sensitive = false;
 	vector<string> fixed_width;
@@ -1543,6 +1546,7 @@ CIFFile::parse_audit_syntax()
 	} catch (std::runtime_error& e) {
 		return;
 	}
+	has_audit_syntax = true;
 	parse_row(pv);
 	set_PDBx_keywords(case_sensitive);
 	use_fixed_width_columns.clear();
