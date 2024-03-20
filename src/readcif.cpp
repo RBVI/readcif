@@ -486,6 +486,7 @@ CIFFile::internal_parse(bool one_table)
 			continue;
 		case T_LOOP: {
 			const char* loop_pos = pos - 5;
+			size_t loop_lineno = lineno;
 			next_token();
 			if (current_token != T_TAG) {
 				std::ostringstream err_msg;
@@ -540,7 +541,7 @@ CIFFile::internal_parse(bool one_table)
 						continue;
 					save_values = false;
 					stash.emplace(current_category,
-						  StashInfo(loop_pos, lineno));
+						  StashInfo(loop_pos, loop_lineno));
 					break;
 				}
 			}
@@ -673,6 +674,7 @@ CIFFile::internal_parse(bool one_table)
 				if (current_category.empty()
 				|| category != current_category) {
 					const char* first_tag_pos = pos - cv.size() - 1;
+					size_t first_tag_lineno = lineno;
 					if (save_values) {
 						// flush current category
 						seen.insert(current_category);
@@ -706,7 +708,7 @@ CIFFile::internal_parse(bool one_table)
 								continue;
 							save_values = false;
 							stash.emplace(current_category,
-								  StashInfo(first_tag_pos, lineno));
+								  StashInfo(first_tag_pos, first_tag_lineno));
 							break;
 						}
 					}
@@ -1021,6 +1023,10 @@ CIFFile::stylized_next_keyword(bool tag_okay)
 			current_token = T_EOI;
 			return;
 		}
+#ifdef CR_IS_EOL
+		if (*pos == '\r' && *(pos + 1) == '\n')
+			++pos;
+#endif
 		++pos;
 		++lineno;
 		switch (*pos) {
