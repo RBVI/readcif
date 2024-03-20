@@ -1,4 +1,4 @@
-Copyright (c) 2014-2019 The Regents of the University of California.
+Copyright (c) 2014-2024 The Regents of the University of California.
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without

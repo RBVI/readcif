@@ -1,5 +1,5 @@
 project('readcif', 'cpp',
-  version: '0.9.1',
+  version: '1.0',
   license: 'LICENSE.md',
   default_options: ['warning_level=3', 'cpp_std=c++11']
 )

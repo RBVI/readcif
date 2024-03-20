@@ -1,6 +1,6 @@
 // vi: set noexpandtab ts=8 sw=8:
 /*
- * Copyright (c) 2014 The Regents of the University of California.
+ * Copyright (c) 2014-2024 The Regents of the University of California.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -68,9 +68,6 @@ using readcif::StringVector;
 // mmCIF files are CIF 1.1 compliant except for how strings are encoded.
 // For example, in mmCIF, BETA-MERCAPTOETHANOL, would be \B-mercaptoethanol,
 // in CIF 1.1.
-//
-// TODO: check if audit_conform.dict_name is "mmcif_pdbx.dic" to see if
-// we're parsing a mmcif file or not.
 
 namespace {
 
@@ -239,10 +236,7 @@ CIFFile::register_category(const string& category, ParseCategory callback,
 		categories.emplace(cname,
 			   CategoryInfo(category, callback, deps));
 	} else {
-		// TODO: find category in categoryOrder
-		// make sure none of the later categories depend on it
 		throw std::runtime_error("missing category callback");
-		categories.erase(category);
 	}
 }
 
@@ -457,7 +451,7 @@ CIFFile::error(const string& text, size_t lineno)
 	if (lineno == 0)
 		lineno = this->lineno;
 	std::ostringstream err_msg;
-	err_msg << text << " near line " << lineno;
+	err_msg << text << " on line " << lineno;
 	return std::move(std::runtime_error(err_msg.str()));
 }
 

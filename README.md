@@ -43,9 +43,3 @@ file into your code.
 ## Contributors
 
 Contributions should be made a pull requests on [github](https://github.com).
-
-## Features needed for 1.0
-
-* Add documentation about **audit**\_**syntax**.
-
-* Reorganize documentation
