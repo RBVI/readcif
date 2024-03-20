@@ -112,7 +112,7 @@ save_parse_info()
 		}
 		std::cout << '\n';
 	}
-};
+}
 
 void
 parse_tags(char* text)
