@@ -1129,7 +1129,9 @@ vector<int>
 CIFFile::find_column_offsets()
 {
 	// Find starting character position of each table column on a line
+	// plus an additional offset which is the line length
 	vector<int> offsets;
+	Token save_token = current_token;
 	const char* save_start = current_value_start;
 	const char* start = save_start;
 	if (is_not_whitespace(*(start - 1)))
@@ -1154,6 +1156,7 @@ CIFFile::find_column_offsets()
 		// Values were not all on the same line,
 		// so fallback to tokenizing.
 		offsets.clear();
+		current_token = save_token;
 		pos = save_pos;
 		lineno = save_lineno;
 	} else {
@@ -1169,8 +1172,8 @@ CIFFile::find_column_offsets()
 		// fixed length, then this could be filled in now.
 		offsets.push_back(0);
 #endif
-		current_value_start = save_start;
 	}
+	current_value_start = save_start;
 	return offsets;
 }
 
@@ -1215,7 +1218,7 @@ CIFFile::parse_row(ParseValues& pv)
 	}
 	auto pvi = pv.begin(), pve = pv.end();
 	while (pvi != pve && pvi->column < 0)
-		++pvi;
+		++pvi;  // skip missing optional columns
 	if (!values.empty()) {
 		// values were given per-tag
 		// assert(current_colnames.size() == values.size())
@@ -1245,6 +1248,10 @@ CIFFile::parse_row(ParseValues& pv)
 	if (pvi == pve) {
 		// discard row
 		if (!columns.empty()) {
+			for (int i = 0, e = current_colnames.size(); i < e; ++i) {
+				if (is_whitespace(current_value_start[columns[i]]))
+					throw error("PDBx/mmCIF styling lost");
+			}
 #ifdef FIXED_LENGTH_ROWS
 			pos = current_value_start + columns[columns.size() - 1] + 1;
 			++lineno;
@@ -1287,6 +1294,10 @@ CIFFile::parse_row(ParseValues& pv)
 			// isn't at start of line, so not stylized
 			throw error("PDBx/mmCIF styling lost");
 		}
+		for (int i = 0, e = current_colnames.size(); i < e; ++i) {
+			if (is_whitespace(start[columns[i]]))
+				throw error("PDBx/mmCIF styling lost");
+		}
 #ifndef FIXED_LENGTH_ROWS
 		// rows are not padded with trailing spaces
 		if (columns.size() > 2) {
@@ -1299,8 +1310,6 @@ CIFFile::parse_row(ParseValues& pv)
 #endif
 		for (; pvi != pve; ++pvi) {
 			current_value_start = start + columns[pvi->column];
-			if (*current_value_start == ' ')
-				throw error("PDBx/mmCIF styling lost");
 			current_value_end = start + columns[pvi->column + 1];
 			if (*current_value_start == '\''
 			|| *current_value_start == '"') {
