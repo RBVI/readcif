@@ -1246,7 +1246,7 @@ CIFFile::parse_row(ParseValues& pv)
 		// discard row
 		if (!columns.empty()) {
 #ifdef FIXED_LENGTH_ROWS
-			pos += columns[columns.size() - 1] + 1;
+			pos = current_value_start + columns[columns.size() - 1] + 1;
 			++lineno;
 #else
 			if (columns.size() > 2) {
