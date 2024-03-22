@@ -1,6 +1,6 @@
 # readcif -- a fast C++ CIF and mmCIF parser
 
-Version: 0.9
+Version: 1.0
 
 ## Table of Contents
 

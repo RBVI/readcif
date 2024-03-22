@@ -592,7 +592,7 @@ CIFFile::internal_parse(bool one_table)
 			// eat remaining values
 			if (stylized) {
 				// if seen all tables, skip to next keyword
-				bool tags_okay = seen.size() < categories.size();
+				bool tags_okay = seen.size() < categories.size() || unregistered;
 				if (!current_is_keyword()
 				&& !(tags_okay && current_token == T_TAG))
 					stylized_next_keyword(tags_okay);
