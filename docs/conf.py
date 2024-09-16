@@ -276,7 +276,7 @@ intersphinx_mapping = {
 # -- Options for extlinks --------------------------------------------
 
 extlinks = {
-	#'jquery': ('http://api.jquery.com/jQuery.%s/', "jQuery API's "),
+	#'jquery': ('https://api.jquery.com/jQuery.%s/', "jQuery API's "),
 }
 
 # Skip objects with doc strings that start with 'Private'.

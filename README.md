@@ -13,10 +13,10 @@ Version: 1.0
 
 ## Overview
 
-**readcif** is a [C++11](http://isocpp.org/wiki/faq/cpp11)
+**readcif** is a [C++11](https://isocpp.org/wiki/faq/cpp11)
 library for quickly extracting data
-from [mmCIF](http://mmcif.wwpdb.org/)
-and [CIF](http://www.iucr.org/resources/cif) files.
+from [mmCIF](https://mmcif.wwpdb.org/)
+and [CIF](https://www.iucr.org/resources/cif) files.
 It fully conforms to the CIF 1.1 standard for data files,
 and can be easily extended to handle CIF dictionaries.
 In addition, it supports stylized PDBx/mmCIF files for even
