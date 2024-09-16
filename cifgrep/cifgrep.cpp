@@ -35,31 +35,7 @@ struct TerminateEarly: std::exception
 {
 };
 
-struct Extract: CIFFile
-{
-	Extract();
-	virtual void reset_parse();
-	virtual void finish_parse();
-};
-
-Extract::Extract()
-{
-	Extract::register_heuristic_stylized_detection();
-}
-
-void
-Extract::reset_parse()
-{
-	if (PDBx_style)
-		set_PDBx_keywords(true);
-}
-
-void
-Extract::finish_parse()
-{
-}
-
-Extract extract;
+CIFFile extract;
 
 void
 save_parse_info()
