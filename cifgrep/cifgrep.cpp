@@ -18,16 +18,17 @@ using std::unordered_map;
 using readcif::CIFFile;
 
 // global options
-bool PDBx_style;
-bool show_data_block;
-bool show_filename;
-bool list_filename_only;
-bool verbose;
+bool PDBx_style = false;
+bool show_data_block = false;
+bool show_filename = false;
+bool list_filename_only = false;
+bool skip_unknown = false;
+bool verbose = false;
 vector<string> tags;
 
 // globals
-bool found_something;
-const char* current_filename;
+bool found_something = false;
+const char* current_filename = nullptr;
 typedef unordered_map<string, string> CategoryInfo;
 unordered_map<string, CategoryInfo> info;
 
@@ -49,8 +50,8 @@ save_parse_info()
 		auto column = extract.get_column(x.first.c_str());
 		if (column == -1) {
 			if (verbose)
-				std::cerr << "Missing " << cat << '.' << x.first << '\n';
-			exit(EXIT_FAILURE);
+				std::cerr << current_filename << ": missing " << cat << '.' << x.first << '\n';
+			throw TerminateEarly();
 		}
 		pv.emplace_back(column,
 			[&] (const char* start, const char* end) {
@@ -67,6 +68,17 @@ save_parse_info()
 		shorten_tags = false;
 	}
 	while (extract.parse_row(pv)) {
+		if (skip_unknown) {
+			bool all_unknown = true;
+			for (auto&& id: tags) {
+				if (cat_info[id] != "?" && cat_info[id] != ".") {
+					all_unknown = false;
+					break;
+				}
+			}
+			if (all_unknown)
+				continue;
+		}
 		found_something = true;
 		if (show_filename) {
 			if (show_data_block)
@@ -74,7 +86,8 @@ save_parse_info()
 			else
 				std::cout << current_filename;
 		}
-		if (list_filename_only) { std::cout << '\n';
+		if (list_filename_only) {
+			std::cout << '\n';
 			throw TerminateEarly();
 		}
 		if (show_filename)
@@ -137,7 +150,7 @@ main(int argc, char** argv)
 	int opt;
 	bool set_show_filename = false;
 
-	while ((opt = getopt(argc, argv, "pdhHlv")) != -1) {
+	while ((opt = getopt(argc, argv, "pdhHlsv")) != -1) {
 		switch (opt) {
 			case 'p':
 				PDBx_style = true;
@@ -158,6 +171,9 @@ main(int argc, char** argv)
 				show_filename = true;
 				set_show_filename = true;
 				break;
+			case 's':
+				skip_unknown = true;
+				break;
 			case 'v':
 				verbose = true;
 				break;
@@ -175,6 +191,7 @@ usage:
 			"\t-H\tAlways show filename.\n"
 			"\t-l\tIf a match is found, just list the filename.\n"
 			"\t-p\tPDBx style (lowercase keyword/tags at beginning of line).\n"
+			"\t-s\tSkip output lines that would be all unknown (.) or inappropriate (?) values\n"
 			"\tCIF tags are comma separated category.id values.\n"
 			"\t\tOnly one category is supported.  Subsequent id's\n"
 			"\t\tcan elide the category (.id is sufficient).\n"

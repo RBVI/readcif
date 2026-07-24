@@ -37,7 +37,16 @@ OPTIONS
 -H  Always show filename.
 -l  If a match is found, suppress output and just list the filename.
 -m  Speed up processing by assuming mmCIF style -- lowercase keyword/tags at the beginning of a line.
+-s  Skip output lines that would be all unknown (.) or inappropriate (?) values
 -v  Verbose.  Give reason for search failure.
+
+EXAMPLES
+========
+
+.. code-block::
+
+   cifgrep atom_site.type_symbol,atom_site.Cartn_x,atom_site.Cartn_y,atom_site.Cartn_z 3fx2.cif
+   cifgrep atom_site.type_symbol,.Cartn_x,.Cartn_y,.Cartn_z 3fx2.cif
 
 SEE ALSO
 ========
